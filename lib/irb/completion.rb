@@ -34,7 +34,8 @@ module IRB
     ]
 
     CompletionProc = proc { |input|
-      bind = IRB.conf[:MAIN_CONTEXT].workspace.binding
+      context = IRB.conf[:MAIN_CONTEXT]
+      bind = context ? context.workspace.binding : binding
 
 #      puts "input: #{input}"
 
